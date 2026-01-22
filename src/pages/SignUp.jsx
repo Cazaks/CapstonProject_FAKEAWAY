@@ -2,6 +2,7 @@ import { useState } from "react";
 import LenisScroll from "../components/LenisScroll";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 export default function SignUp({ onSignUp }) {
   const [formData, setFormData] = useState({
@@ -43,13 +44,14 @@ export default function SignUp({ onSignUp }) {
       <LenisScroll />
       <Header />
 
-      <main className="flex items-center justify-center min-h-screen px-4">
+      <main className="flex justify-center px-4 py-20">
+
         <form
           onSubmit={handleSubmit}
           className="w-full max-w-md bg-white p-8 rounded-xl shadow-lg"
         >
           <h2 className="text-2xl font-semibold text-center mb-6">
-            Create Account
+            Create Account to get started!
           </h2>
 
           {error && (
@@ -119,6 +121,17 @@ export default function SignUp({ onSignUp }) {
           <button className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700">
             Sign Up
           </button>
+
+          <p className="mt-4 text-center text-sm text-gray-600">
+            Already have an account?{" "}
+            <Link
+              to="/login"
+              className="font-medium text-blue-600 hover:underline"
+            >
+              Login here
+            </Link>
+          </p>
+
         </form>
       </main>
 
