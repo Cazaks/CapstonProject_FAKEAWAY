@@ -15,7 +15,7 @@ export default function ForgotPassword() {
     <>
       <Header />
 
-      <main className="flex min-h-screen items-center justify-center px-4">
+      <main className="flex bg-gray-100 min-h-screen items-center justify-center px-4">
         <form
           onSubmit={handleSubmit}
           className="w-full max-w-md rounded-lg bg-white p-8 shadow-md"

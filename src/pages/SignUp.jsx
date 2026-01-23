@@ -47,7 +47,7 @@ export default function SignUp() {
       <LenisScroll />
       <Header />
 
-      <main className="flex justify-center px-4 py-20">
+      <main className="flex justify-center bg-slate-100 px-4 py-20">
 
         <form
           onSubmit={handleSubmit}

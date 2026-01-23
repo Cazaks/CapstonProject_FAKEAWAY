@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import LenisScroll from "../components/LenisScroll";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+// import ForgotPassword from "./ForgotPassword";
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -26,7 +27,7 @@ export default function Login() {
         <>
             <LenisScroll />
             <Header />
-            <main className="flex items-center justify-center min-h-screen px-4">
+            <main className="flex bg-gray-100 items-center justify-center min-h-screen px-4">
                 <form
                     onSubmit={handleChange}
                     className="w-full max-w-md bg-white p-8 rounded-xl shadow-lg"
@@ -62,6 +63,16 @@ export default function Login() {
                     >
                         Login
                     </button>
+
+                    <div className="mb-6 text-right">
+  <Link
+    to="/ForgotPassword"
+    className="text-sm text-blue-600 hover:underline"
+  >
+    Forgot password?
+  </Link>
+</div>
+
 
                     <p className="mt-4 text-center text-sm text-gray-600">
             Don’t have an account?{" "}
