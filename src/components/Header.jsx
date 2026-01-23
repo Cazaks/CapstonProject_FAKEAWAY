@@ -1,4 +1,4 @@
-import {MenuIcon, XIcon, ChevronDown, QrCode, Nfc, ShieldCheck, ScanLine,} from 'lucide-react';
+import { MenuIcon, XIcon, ChevronDown, QrCode, Nfc, ShieldCheck, ScanLine, } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -26,21 +26,21 @@ export default function Header() {
         <>
             <nav className='sticky top-0 z-50 flex w-full items-center justify-between border-b border-gray-200/70 bg-white/50 px-4 py-3.5 backdrop-blur-md md:px-16 lg:px-24'>
                 <a
-  href="/"
-  className="inline-flex items-center gap-"
->
-  <img
-    src="/assets/logo.svg"
-    alt="logo"
-    className="h-12 w-12 shrink-0 md:h-14 md:w-14"
-  />
+                    href="/"
+                    className="inline-flex items-center gap-"
+                >
+                    <img
+                        src="/assets/logo.svg"
+                        alt="logo"
+                        className="h-12 w-12 shrink-0 md:h-14 md:w-14"
+                    />
 
-    <span className="text-3xl md:text-4xl font-extrabold text-blue-469 whitespace-nowrap leading-none">
-    FAKEAWAY
-  </span>
-</a>
+                    <span className="text-3xl md:text-4xl font-extrabold text-blue-469 whitespace-nowrap leading-none">
+                        FAKEAWAY
+                    </span>
+                </a>
 
-        
+
 
                 <div className='hidden items-center space-x-6 text-gray-700 md:flex'>
                     {links.map((link) => link.subLinks ? (
@@ -75,11 +75,10 @@ export default function Header() {
                 </div>
 
                 <Link
-  to="/signup"
-  className="hidden rounded-full bg-gray-900 px-8 py-2.5 font-medium text-white transition hover:opacity-90 md:inline-block"
->
-  Sign Up
-</Link>
+                    to="/signup"
+                    className="hidden rounded-full bg-gray-900 px-4 py-1.5 font-medium text-white transition hover:opacity-90 md:inline-block">
+                    Sign Up
+                </Link>
 
 
                 <button onClick={() => setIsOpen(true)} className='transition active:scale-90 md:hidden'>
@@ -115,12 +114,12 @@ export default function Header() {
                 ))}
 
                 <Link
-  to="/signup"
-  className="rounded-full bg-gray-900 px-8 py-2.5 font-medium text-white transition hover:opacity-90"
-  onClick={() => setIsOpen(false)}
->
-  Sign Up
-</Link>
+                    to="/signup"
+                    className="rounded-full bg-gray-900 px-4 py-1.5 font-medium text-white transition hover:opacity-90"
+                    onClick={() => setIsOpen(false)}
+                >
+                    Sign Up
+                </Link>
 
 
                 <button onClick={() => setIsOpen(false)} className='rounded-md bg-gray-900 p-2 text-white ring-white active:ring-2'>
