@@ -1,4 +1,8 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
+import LenisScroll from "../../components/LenisScroll";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
+
 
 export default function DashBoardLayout() {
   const navigate = useNavigate();
@@ -9,13 +13,17 @@ export default function DashBoardLayout() {
   };
 
   return (
+    <>
+      <LenisScroll />
+      <Header showAutoSwitchButton={false} />
+
     <div className="relative h-screen w-full flex">
 
 
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('/assets/first_bgImage.jpg')",
+          backgroundImage: "url('/assets/backgroundImage.jpg')",
         }}
       />
 
@@ -63,5 +71,8 @@ export default function DashBoardLayout() {
         <Outlet />
       </main>
     </div>
+      <Footer />
+
+    </>
   );
 }
