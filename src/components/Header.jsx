@@ -24,7 +24,7 @@ export default function Header({showAutoSwitchButton = true}) {
 
     return (
         <>
-            <nav className='sticky top-0 z-50 flex w-full items-center justify-between border-b border-gray-200/70 bg-white/50 px-4 py-3.5 backdrop-blur-md md:px-16 lg:px-24'>
+            <nav className="fixed top-0 z-50 flex w-full items-center justify-between border-b border-gray-200/70 bg-white/10 px-4 h-14 md:h-16 lg:h-16 backdrop-blur-md">
                 <a
                     href="/"
                     className="inline-flex items-center gap-"
@@ -32,7 +32,7 @@ export default function Header({showAutoSwitchButton = true}) {
                     <img
                         src="/assets/logo.svg"
                         alt="logo"
-                        className="h-12 w-12 shrink-0 md:h-14 md:w-14"
+                        className="h-9 w-9 shrink-0 md:h-12 md:w-12"
                     />
 
                     <span className="text-3xl md:text-4xl font-extrabold text-blue-469 whitespace-nowrap leading-none">
