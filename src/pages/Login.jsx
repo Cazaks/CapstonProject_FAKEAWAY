@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LenisScroll from "../components/LenisScroll";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-// import ForgotPassword from "./ForgotPassword";
+
 
 export default function Login() {
-    const [email, setEmail] = useState("");
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -20,6 +20,9 @@ export default function Login() {
     const handleChange = (e) => {
         e.preventDefault();
         console.log("Form submitted:", formData);
+
+        localStorage.setItem("isLoggedIn", "true");
+        navigate("/dashboard");
         
     }
 
@@ -27,7 +30,13 @@ export default function Login() {
         <>
             <LenisScroll />
             <Header />
-            <main className="flex bg-gray-100 items-center justify-center min-h-screen px-4">
+           <main className="relative flex min-h-screen items-center justify-center px-4">
+  <div
+    className="absolute inset-0 bg-cover bg-center -z-10"
+    style={{
+      backgroundImage: "url('/assets/login_bgImage.jpg')",
+    }}
+  ></div>
                 <form
                     onSubmit={handleChange}
                     className="w-full max-w-md bg-white p-8 rounded-xl shadow-lg"
