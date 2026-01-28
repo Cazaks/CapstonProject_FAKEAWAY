@@ -2,7 +2,7 @@ import { MenuIcon, XIcon, ChevronDown, QrCode, Nfc, ShieldCheck, ScanLine, } fro
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Header({showAutoSwitchButton = true}) {
+export default function Header({ showAutoSwitchButton = true }) {
     const [isOpen, setIsOpen] = useState(false);
     const [openDropdown, setOpenDropdown] = useState(null);
 
@@ -24,10 +24,11 @@ export default function Header({showAutoSwitchButton = true}) {
 
     return (
         <>
-            <nav className="fixed top-0 z-50 flex w-full items-center justify-between border-b border-gray-200/70 bg-white/10 px-4 h-14 md:h-16 lg:h-16 backdrop-blur-md">
+            <nav className="fixed top-0 z-50 flex w-full items-center justify-between border-b border-gray-200/70 bg-black/30 px-4 h-14 md:h-16 lg:h-16 backdrop-blur-md">
+
                 <a
                     href="/"
-                    className="inline-flex items-center gap-"
+                    className="inline-flex items-center gap-2"
                 >
                     <img
                         src="/assets/logo.svg"
@@ -42,7 +43,7 @@ export default function Header({showAutoSwitchButton = true}) {
 
 
 
-                <div className='hidden items-center space-x-6 text-gray-700 md:flex'>
+                <div className='hidden items-center space-x-6 text-white md:flex'>
                     {links.map((link) => link.subLinks ? (
                         <div key={link.name} className='group relative' onMouseEnter={() => setOpenDropdown(link.name)} onMouseLeave={() => setOpenDropdown(null)}>
                             <div className='flex cursor-pointer items-center gap-1 hover:text-black'>
@@ -75,11 +76,12 @@ export default function Header({showAutoSwitchButton = true}) {
                 </div>
 
                 {showAutoSwitchButton && (
-                <Link
-                    to="/signup"
-                    className="hidden rounded-full bg-gray-900 px-4 py-1.5 font-medium text-white transition hover:opacity-90 md:inline-block">
-                    Sign Up
-                </Link>
+                    <Link
+                        to="/signup"
+                        className="hidden md:inline-block mr-8 rounded-full bg-gray-900 px-4 py-1.5 font-medium text-white transition hover:opacity-90">
+                        Sign Up
+                    </Link>
+
                 )}
 
 
