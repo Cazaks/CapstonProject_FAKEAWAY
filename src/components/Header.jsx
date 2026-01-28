@@ -2,7 +2,7 @@ import { MenuIcon, XIcon, ChevronDown, QrCode, Nfc, ShieldCheck, ScanLine, } fro
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Header() {
+export default function Header({showAutoSwitchButton = true}) {
     const [isOpen, setIsOpen] = useState(false);
     const [openDropdown, setOpenDropdown] = useState(null);
 
@@ -74,11 +74,13 @@ export default function Header() {
                     ))}
                 </div>
 
+                {showAutoSwitchButton && (
                 <Link
                     to="/signup"
                     className="hidden rounded-full bg-gray-900 px-4 py-1.5 font-medium text-white transition hover:opacity-90 md:inline-block">
                     Sign Up
                 </Link>
+                )}
 
 
                 <button onClick={() => setIsOpen(true)} className='transition active:scale-90 md:hidden'>
