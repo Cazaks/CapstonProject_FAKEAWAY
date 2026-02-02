@@ -16,42 +16,32 @@ export default function DashBoardLayout() {
       <LenisScroll />
       <Header showAutoSwitchButton={false} />
 
-      <div className="relative min-h-screen w-full overflow-x-hidden flex">
-        
+      <div className="relative min-h-screen flex w-full">
+        {/* Background image */}
         <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/assets/backgroundImage.jpg')",
-          }}
+          className="absolute inset-0 bg-cover bg-center z-0"
+          style={{ backgroundImage: "url('/assets/backgroundImage.jpg')" }}
         />
 
-        
-        <div className="absolute inset-0 bg-black/40" />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/40 z-0" />
 
-        
+        {/* Sidebar */}
         <aside className="relative z-10 w-64 shrink-0 bg-gray-100 border-r">
-          {/* <div className="flex items-center gap-1 p-4">
-            <img
-              src="/assets/logo.svg"
-              alt="logo"
-              className="h-12 w-10 shrink-0 md:h-14 md:w-10"
-            />
-
-            <span className="text-base md:text-4xl font-extrabold text-blue-469 leading-none">
-              FAKEAWAY
-            </span>
-          </div> */}
-
-          <nav className="flex flex-col gap-2 px-4">
+          <nav className="flex flex-col gap-2 px-4 pt-20">
             <Link to="/dashboard" className="p-2 rounded hover:bg-gray-200">
               Overview
             </Link>
+
+            {/* ✅ Events link points to EventPages landing page */}
             <Link to="/dashboard/events" className="p-2 rounded hover:bg-gray-200">
               Events
             </Link>
+
             <Link to="/dashboard/tickets" className="p-2 rounded hover:bg-gray-200">
               Tickets
             </Link>
+
             <Link to="/dashboard/profile" className="p-2 rounded hover:bg-gray-200">
               Profile
             </Link>
@@ -65,9 +55,12 @@ export default function DashBoardLayout() {
           </nav>
         </aside>
 
-        
-        <main className="relative z-10 flex-1 p-6 overflow-y-auto overflow-x-hidden">
-          <Outlet />
+        {/* Main content area */}
+        <main className="relative z-10 flex-1 flex flex-col min-h-screen">
+          <div className="flex-1 overflow-y-auto pt-6 px-6">
+            {/* Outlet renders the current page */}
+            <Outlet />
+          </div>
         </main>
       </div>
 

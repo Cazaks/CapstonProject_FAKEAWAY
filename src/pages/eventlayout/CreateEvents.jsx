@@ -2,7 +2,7 @@
 export default function CreateEvents() {
   return (
 
-    <div className="min-h-screen pt-24 px-4 flex justify-center items-center">
+    <div className="min-h-screen px-4 flex justify-center items-center">
 
       <div className="w-full max-w-xs sm:max-w-md md:max-w-lg bg-white/10 backdrop-blur-lg border border-white/30 p-6 sm:p-8 rounded-2xl shadow-xl shadow-black/10">
 
