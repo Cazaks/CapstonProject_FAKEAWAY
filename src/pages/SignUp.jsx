@@ -18,13 +18,11 @@ export default function SignUp() {
 
   const [error, setError] = useState("");
 
-  // Update form fields
   function handleChange(e) {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   }
 
-  // Handle form submission
   async function handleSubmit(e) {
     e.preventDefault();
     setError("");
@@ -35,18 +33,19 @@ export default function SignUp() {
     }
 
     try {
-      // Call backend service
       await registerUser({
         firstName: formData.firstName,
         lastName: formData.lastName,
         email: formData.email,
         password: formData.password,
+        phoneNumber: formData.phoneNumber,
       });
 
       alert("Registration successful! Please login.");
       navigate("/login");
     } catch (err) {
       console.error("Registration failed:", err.message);
+      console.log("Full error object:", err);
       setError(err.message);
     }
   }
