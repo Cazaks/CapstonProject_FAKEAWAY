@@ -40,7 +40,6 @@ export default function CreateEvents() {
     setSuccess("");
 
     try {
-      // Combine date + time for LocalDateTime
       const formattedDateTime = `${formData.eventDate}T${formData.eventTime}`;
 
       const payload = {
@@ -59,6 +58,15 @@ export default function CreateEvents() {
       await EventServices.createEvent(payload);
 
       setSuccess("Event created successfully!");
+      setFormData({
+        eventName: "",
+        description: "",
+        venue: "",
+        eventDate: "",
+        eventTime: "",
+        ticketPrices: { REGULAR: "", VIP: "" },
+        totalTickets: "",
+      });
     } catch (err) {
       setError(err.message || "Something went wrong");
       console.log("Create event error in component:", err);
@@ -66,11 +74,14 @@ export default function CreateEvents() {
   }
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-gray-900">
-      <div className="w-full max-w-md bg-white/10 backdrop-blur-lg p-8 rounded-2xl">
-        {/* <h1 className="text-2xl font-bold mb-6 text-center text-white">
+    <div
+      className="min-h-screen w-full flex justify-center items-center bg-cover bg-center p-4"
+      style={{ backgroundImage: "url('/assets/event_bg_image.jpg')" }}
+    >
+      <div className="w-full max-w-md bg-black/40 backdrop-blur-md p-6 sm:p-8 rounded-2xl">
+        <h1 className="text-2xl font-bold text-white text-center mb-6">
           Create Event
-        </h1> */}
+        </h1>
 
         <form className="space-y-4" onSubmit={handleSubmit}>
           <input
@@ -80,7 +91,7 @@ export default function CreateEvents() {
             onChange={handleChange}
             placeholder="Event Name"
             required
-            className="w-full p-3 rounded bg-white/20 text-white"
+            className="w-full p-3 rounded bg-white/20 text-white placeholder-white"
           />
 
           <textarea
@@ -89,7 +100,7 @@ export default function CreateEvents() {
             onChange={handleChange}
             placeholder="Description"
             required
-            className="w-full p-3 rounded bg-white/20 text-white"
+            className="w-full p-3 rounded bg-white/20 text-white placeholder-white"
           />
 
           <input
@@ -99,26 +110,27 @@ export default function CreateEvents() {
             onChange={handleChange}
             placeholder="Venue"
             required
-            className="w-full p-3 rounded bg-white/20 text-white"
+            className="w-full p-3 rounded bg-white/20 text-white placeholder-white"
           />
 
-          <input
-            type="date"
-            name="eventDate"
-            value={formData.eventDate}
-            onChange={handleChange}
-            required
-            className="w-full p-3 rounded bg-white/20 text-white"
-          />
-
-          <input
-            type="time"
-            name="eventTime"
-            value={formData.eventTime}
-            onChange={handleChange}
-            required
-            className="w-full p-3 rounded bg-white/20 text-white"
-          />
+          <div className="flex gap-2">
+            <input
+              type="date"
+              name="eventDate"
+              value={formData.eventDate}
+              onChange={handleChange}
+              required
+              className="w-1/2 p-3 rounded bg-white/20 text-white placeholder-white"
+            />
+            <input
+              type="time"
+              name="eventTime"
+              value={formData.eventTime}
+              onChange={handleChange}
+              required
+              className="w-1/2 p-3 rounded bg-white/20 text-white placeholder-white"
+            />
+          </div>
 
           <input
             type="number"
@@ -127,7 +139,7 @@ export default function CreateEvents() {
             onChange={handleTicketPriceChange}
             placeholder="Regular Ticket Price"
             required
-            className="w-full p-3 rounded bg-white/20 text-white"
+            className="w-full p-3 rounded bg-white/20 text-white placeholder-white"
           />
 
           <input
@@ -137,7 +149,7 @@ export default function CreateEvents() {
             onChange={handleTicketPriceChange}
             placeholder="VIP Ticket Price"
             required
-            className="w-full p-3 rounded bg-white/20 text-white"
+            className="w-full p-3 rounded bg-white/20 text-white placeholder-white"
           />
 
           <input
@@ -147,18 +159,18 @@ export default function CreateEvents() {
             onChange={handleChange}
             placeholder="Total Tickets"
             required
-            className="w-full p-3 rounded bg-white/20 text-white"
+            className="w-full p-3 rounded bg-white/20 text-white placeholder-white"
           />
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-3 rounded hover:bg-blue-700"
+            className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded font-bold transition"
           >
             Create Event
           </button>
 
-          {error && <p className="text-red-500">{error}</p>}
-          {success && <p className="text-green-500">{success}</p>}
+          {error && <p className="text-red-500 text-center">{error}</p>}
+          {success && <p className="text-green-500 text-center">{success}</p>}
         </form>
       </div>
     </div>
