@@ -142,31 +142,48 @@ const EventServices = {
   //   }
   // },
 
-  postponeEvent: async (eventId, newDate) => {
-    try {
-      const token = localStorage.getItem("token");
-      if (!token) throw new Error("You must be logged in to postpone events.");
+  postponeEvent: async (
+  eventId, newDate, newTime, reason
+) => {
 
-      const response = await fetch(`${BASE_URL}/${eventId}/postpone`, {
-        method: "PATCH",
-        headers: {
-          "Authorization": `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-        body: JASON.stringify({eventDate: newDate}),
-      });
+  const token = localStorage.getItem("token");
 
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.message || "Failed to postpone event");
-      }
+  const response = await fetch(
+    `${BASE_URL}/${eventId}/postpone`,
+    {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
 
-      return await response.json();
-    } catch (error) {
-      console.error("Postpone event error:", error);
-      throw error;
+      body: JSON.stringify({
+
+        newEventDate:
+          `${newDate}T${newTime}:00`,
+
+        newEventTime: newTime,
+
+        reason: reason,
+
+        notifyTicketHolders: true,
+
+      }),
+
     }
-  },
+  );
+
+  if (!response.ok) {
+
+    const error =
+      await response.json();
+
+    throw new Error(error.message);
+
+  }
+
+  return response.json();
+},
 
 };
 
