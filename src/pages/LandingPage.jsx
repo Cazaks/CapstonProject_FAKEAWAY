@@ -3,29 +3,36 @@ import Header from "../components/Header";
 import Heros from "../components/Heros";
 import LenisScroll from "../components/LenisScroll";
 import CallToActionSection from "../section/CallToActionSection";
-import FaxQuestions from "../section/FaqQuestions ";
+import FaqQuestions from "../section/FaqQuestions";
 import HeroSection from "../section/HeroSection";
 import HowItWorksSection from "../section/HowItWorksSection";
 import MeetOurTeamSection from "../section/MeetOurTeam";
-import PriceSection from "../section/PriceSection ";
+import PriceSection from "../section/PriceSection";
 import TestimonalSection from "../section/TestimonalSection";
 
 export default function LandingPage() {
   return (
     <>
-    <LenisScroll />
-            <Heros />
-            <Header />
-            <main className='px-4'>
-                <HeroSection />
+      <LenisScroll />
+
+      <div className="pt-14 md:pt-16">
+        <Heros />
+      </div>
+
+      
+      <Header />
+
+      <main className='px-4'>
+          <HeroSection />
                 <HowItWorksSection />
                 <MeetOurTeamSection />
                 <TestimonalSection />
                 <PriceSection />
-                <FaxQuestions />
+                <FaqQuestions />
                 <CallToActionSection />
-            </main>
-            <Footer />
+      </main>
+
+      <Footer />
     </>
   );
 }

@@ -3,7 +3,7 @@ import LenisScroll from "../components/LenisScroll";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Link, useNavigate } from "react-router-dom";
-import { registerUser } from "../services/AuthenticationServices"; // backend service
+import { registerUser } from "../services/authenticationServicePage/AuthenticationServices";
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -33,6 +33,7 @@ export default function SignUp() {
     }
 
     try {
+      console.log('Registering user with data:');
       await registerUser({
         firstName: formData.firstName,
         lastName: formData.lastName,
@@ -44,8 +45,8 @@ export default function SignUp() {
       alert("Registration successful! Please login.");
       navigate("/login");
     } catch (err) {
-      console.error("Registration failed:", err.message);
-      console.log("Full error object:", err);
+      console.log("Hi Bolaji");
+     
       setError(err.message);
     }
   }

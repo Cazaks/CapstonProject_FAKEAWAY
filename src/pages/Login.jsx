@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import LenisScroll from "../components/LenisScroll";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { loginUser } from "../services/AuthenticationServices"; 
+import { loginUser } from "../services/authenticationServicePage/AuthenticationServices"; 
 
 export default function Login() {
     const navigate = useNavigate();
