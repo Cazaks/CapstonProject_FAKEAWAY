@@ -4,7 +4,7 @@ import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 
-import DashBoardLayout from "./pages/dashboard/DashBoardLayout";
+import DashboardLayout from "./pages/dashboard/DashboardLayout";
 // import DashboardHome from "./pages/dashboard/DashboardHome";
 
 import EventPages from "./pages/eventlayout/EventsPageLayout";
@@ -25,7 +25,7 @@ function App() {
         <Route path="/forgotpassword" element={<ForgotPassword />} />
 
 
-        <Route path="/dashboard" element={<DashBoardLayout />}>
+        <Route path="/dashboard" element={<DashboardLayout />}>
           {/* <Route index element={<DashboardHome />} /> */}
 
           <Route path="events" element={<EventPages />} />
