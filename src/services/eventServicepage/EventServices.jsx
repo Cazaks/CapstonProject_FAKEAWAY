@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8080/event";
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 const EventServices = {
 
@@ -13,7 +13,7 @@ const EventServices = {
         throw new Error("You must be logged in as an admin to create events.");
       }
 
-      const response = await fetch(`${BASE_URL}/create`, {
+      const response = await fetch(`${BASE_URL}/cevent/reate`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -41,7 +41,7 @@ const EventServices = {
     try {
       const token = localStorage.getItem("token");
 
-    const response = await fetch(`${BASE_URL}/all`, {
+    const response = await fetch(`${BASE_URL}/event/all`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -68,7 +68,7 @@ const EventServices = {
   // ===============================
   getEventById: async (id) => {
     try {
-      const response = await fetch(`${BASE_URL}/${id}`);
+      const response = await fetch(`${BASE_URL}/event/${id}`);
 
       if (!response.ok) {
         throw new Error("Failed to fetch event");
@@ -93,7 +93,7 @@ const EventServices = {
       const token = localStorage.getItem("token");
       if (!token) throw new Error("You must be logged in to cancel events.");
 
-      const response = await fetch(`${BASE_URL}/${eventId}/cancel`, {
+      const response = await fetch(`${BASE_URL}/event/${eventId}/cancel`, {
         method: "DELETE",
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -149,7 +149,7 @@ const EventServices = {
   const token = localStorage.getItem("token");
 
   const response = await fetch(
-    `${BASE_URL}/${eventId}/postpone`,
+    `${BASE_URL}/event/${eventId}/postpone`,
     {
       method: "PATCH",
       headers: {
