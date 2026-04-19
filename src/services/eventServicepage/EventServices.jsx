@@ -13,7 +13,7 @@ const EventServices = {
         throw new Error("You must be logged in as an admin to create events.");
       }
 
-      const response = await fetch(`${BASE_URL}/cevent/reate`, {
+      const response = await fetch(`${BASE_URL}/event/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
